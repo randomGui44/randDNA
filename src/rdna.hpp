@@ -9,11 +9,12 @@ string randDNA(int seed, string bases, int n){
 	string result;	
 	mt19937 eng1(seed);
 	
-	uniform_int_distribution<> uniform(0, bases.size() - 1);
+	uniform_int_distribution<int> uniform(0, bases.size() - 1);
 	
-	for(int counter = 0; counter <= (bases.size() - 1); counter++){
-		uniform(eng1);
-		result = bases[uniform];
+	/*Loops through the string and randomly organizes it to produce somehting different*/
+	for(int counter = 0; counter < (bases.size() - 1); counter++){
+		int arrangement = uniform(eng1);
+		result += bases[arrangement];
 	}/*End For*/
 	
 	return result;
